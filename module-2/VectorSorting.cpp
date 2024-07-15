@@ -194,8 +194,6 @@ void quickSort(vector<Bid> &bids, int begin, int end)
     quickSort(bids, mid + 1, end);
 }
 
-// FIXME (1a): Implement the selection sort logic over bid.title
-
 /**
  * Perform a selection sort on bid title
  * Average performance: O(n^2))
@@ -209,16 +207,16 @@ void selectionSort(vector<Bid> &bids)
     int minIndex;
 
     // Check size of bids vector
-    size_t size = bids.size();
+    size_t bid_size = bids.size();
 
     // pos is the position within bids that divides sorted/unsorted
-    for (size_t pos = 0; pos < size - 1; pos++)
+    for (size_t pos = 0; pos < bid_size - 1; pos++)
     {
         // Initially set the current position as min
         minIndex = pos;
 
         // Loop over remaining elements to the right of position
-        for (size_t i = pos + 1; i < size; i++)
+        for (size_t i = pos + 1; i < bid_size; i++)
         {
             // If this element's title is less than minimum title
             if (bids[i].title < bids[minIndex].title)
@@ -294,7 +292,7 @@ int main(int argc, char *argv[])
             // Complete the method call to load the bids
             bids = loadBids(csvPath);
 
-            cout << bids.size() << " bids read" << endl;
+            // cout << bids.size() << " bids read" << endl;
 
             // Calculate elapsed time and display result
             ticks = clock() - ticks; // current clock ticks minus starting clock ticks
@@ -313,10 +311,7 @@ int main(int argc, char *argv[])
 
             break;
 
-            // FIXME (1b): Invoke the selection sort and report timing results
             selectionSort(bids);
-
-            // FIXME (2b): Invoke the quick sort and report timing results
             quickSort(bids, 0, bids.size() - 1);
         }
     }
