@@ -8,6 +8,7 @@ int main()
 {
   string hello = "hello";
 
+
   for (int i = 0; i < hello.length(); i++)
   {
     if (islower(hello[i]))
